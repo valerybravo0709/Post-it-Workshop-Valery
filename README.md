@@ -27,7 +27,11 @@ Los registros indican modificaciones en tres frentes principales:
 
 ### 🔐 Control de versiones
 Los atacantes dejaron el repositorio en un estado que exige que trabajes desde una copia aislada y segura.  
-Tendrás que establecer un flujo de trabajo que te permita recuperar, modificar y devolver cambios bajo tu control.  
+Tendrás que establecer un flujo de trabajo que te permita recuperar, modificar y devolver cambios bajo tu control.
+Para ello deberás realizar:
+1. Crear tu propia copia de este proyecto usando un Fork 
+2. Descargar esa copia a tu máquina. 
+3. Una vez que limpies el código, deberás subirlo a tu repositorio
 
 ---
 
@@ -56,6 +60,9 @@ Se detectó además que una de las funciones principales encargada de persistir 
 4. Documenta los cambios realizados y sube tu versión reparada a tu repositorio.  
 
 ---
+
+https://github.com/user-attachments/assets/0b0b33eb-8d13-4792-9b61-cc1a1675c2a4
+
 
 ## Cierre
 
