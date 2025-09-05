@@ -3,8 +3,9 @@ const addButton = document.getElementById('add-note-button');
 const notesContainer = document.getElementById('notes-container');
 const toggleThemeButton = document.getElementById('toggle-theme-button');
 const body = document.body;
-const colors = ['note-yellow'];
-
+//Se adicionan los dos colores que faltaban para el grupo de colores aleatorios
+const colors = ['note-yellow', 'note-blue', 'note-pink'];
+//crea un elemento de nota
 function createNoteElement(text, colorClass) {
     const noteDiv = document.createElement('div');
     noteDiv.classList.add('note', colorClass); 
@@ -17,9 +18,9 @@ function createNoteElement(text, colorClass) {
     noteDiv.appendChild(deleteButton);
     return noteDiv;
 }
-
+// carga las notas 
 function loadNotes() {
-    const storedNotes = [];
+    const storedNotes = localStorage.getItem('notes');
     console.log(storedNotes);
     if (storedNotes) {
         const notes = JSON.parse(storedNotes);
@@ -29,7 +30,7 @@ function loadNotes() {
         });
     }
 }
-
+//
 function setInitialTheme() {
     const isDarkMode = localStorage.getItem('isDarkMode') === 'true';
     if (isDarkMode) {
@@ -48,6 +49,17 @@ toggleThemeButton.addEventListener('click', () => {
     localStorage.setItem('isDarkMode', isDarkMode);
     toggleThemeButton.textContent = isDarkMode ? 'Modo Claro' : 'Modo Oscuro';
 });
+//Se crea una funcion que ya estaba siendo llamada mas abajo pero no habia sido creada
+function saveNotes(){
+    const notes = [];
+    document.querySelectorAll('.note').forEach(note => {//el querySelectorAll es el que permite guardar todo
+        notes.push({
+            text: note.textContent.replace('x','').trim(),
+            color: colors.find(c => note.classList.contains(c))
+        });
+    });
+    localStorage.setItem('notes', JSON.stringify(notes));
+}
 
 notesContainer.addEventListener('dblclick', (event) => {
     const target = event.target;
@@ -82,15 +94,15 @@ notesContainer.addEventListener('dblclick', (event) => {
         });
     }
 });
-
+//se comentan las lineas que causaban el error de dos notas
 addButton.addEventListener('click', () => {
     const noteText = noteInput.value.trim();
     if (noteText !== '') {
         const randomColor = colors[Math.floor(Math.random() * colors.length)];
         const newNote = createNoteElement(noteText, randomColor);
         notesContainer.appendChild(newNote);
-        const newNoteErr = createNoteElement(noteText, randomColor);
-        notesContainer.appendChild(newNoteErr);
+        //const newNoteErr = createNoteElement(noteText, randomColor);
+        //notesContainer.appendChild(newNoteErr);
         noteInput.value = '';
         addButton.disabled = true;
         saveNotes();
