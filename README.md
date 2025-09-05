@@ -15,7 +15,8 @@ El sistema fue diseñado para:
 - Crear notas digitales.  
 - Almacenarlas de forma persistente en el navegador.  
 - Asignarles colores de manera aleatoria.  
-- Operar con un modo oscuro funcional.  
+- Operar con un modo oscuro funcional.
+- Documentar el código
 
 Actualmente, varias de estas características se encuentran comprometidas.
 
@@ -57,7 +58,7 @@ Se detectó además que una de las funciones principales encargada de persistir 
 1. Restaura la integridad del proyecto en tu espacio de trabajo.  
 2. Revisa los archivos clave (HTML, CSS y JS) para identificar las modificaciones sospechosas.  
 3. Corrige el código asegurando que la aplicación cumpla nuevamente con sus objetivos.  
-4. Documenta los cambios realizados y sube tu versión reparada a tu repositorio.  
+4. Documenta y sube tu versión reparada a tu repositorio.  
 
 ---
 
